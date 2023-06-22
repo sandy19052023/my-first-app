@@ -1,0 +1,24 @@
+
+const [name,setname]=useState('');
+
+const submit =(e)=>{
+    e.preventDefault();
+}
+const h=(e)=>{
+    setname(e.target.value());
+}
+
+const ok=(event)=>
+{
+    event.preventDefault();
+
+    axios.post('https://646476e0043c103502ba1eb5.mockapi.io/new',{personNmae:name});
+
+    setname('')
+}
+
+<form onsubmit={submit}>
+
+    <input type="text" value={name} onchange={h}>
+    <button onclick={ok}>Ok</button>
+</form>
